@@ -1,0 +1,130 @@
+﻿
+body {
+    margin-top: 80px;
+}
+
+.container {
+    width: 450px;
+}
+
+h1 {
+    font-size: 72px;
+    font-family: Arial;
+    font-weight: bold;
+    color: #776e65;
+}
+
+/*game board*/
+.gameBoard {
+    background-color: #bbada0;
+    border-radius: 8px;
+    /*padding: 10px 40px;*/
+    border-collapse: separate;
+    border-spacing: 8px;
+}
+
+.tile {
+    font-size: 42px;
+    font-weight: bold;
+    background-color: rgba(238, 228, 218, 0.34902);
+    color: #776e65;
+    border-radius: 6px;
+    width: 96px;
+    height: 96px;
+}
+
+.scoreBox {
+    /*display: inline-block;*/
+    background-color: #bbada0;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    font-size: 13px;
+    font-weight: normal;
+    color: white;
+    line-height: 16px;
+    border-radius: 4px;
+    margin-top: 8px;
+    margin-left: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    float: right;
+}
+
+.scoreBoxScore {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    float: none;
+    display: block;
+    padding-left: 16px;
+    padding-right: 16px;
+    line-height: 32px;
+}
+
+
+.value2 {
+    background-color: #eee4da;
+}
+
+.value4 {
+    background-color: #ede0c8;
+}
+
+.value8 {
+    background-color:#f2b179;
+    color: #f9f6f2;
+}
+
+.value16 {
+    background-color: #f59563;
+    color: #f9f6f2;
+}
+
+.value32 {
+    background-color: #f67c5f;
+    color: #f9f6f2;
+}
+
+.value64 {
+    background-color: #f65e3b;
+    color: #f9f6f2;
+}
+
+.value128 {
+    background-color: #edcf72;
+    color: #f9f6f2;
+}
+
+.value256 {
+    background-color: #edcc61;
+    color: #f9f6f2;
+}
+
+.value512 {
+    color: #f9f6f2;
+    background: #edc850;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
+    font-size: 38px;
+}
+
+.value1024 {
+    color: #f9f6f2;
+    background: #edc53f;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
+    font-size: 32px;
+}
+
+.value2048 {
+    color: #f9f6f2;
+    background: #edc22e;
+    box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
+    font-size: 30px;
+}
+
+
+
+
+
+
+
