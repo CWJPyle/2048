@@ -7,6 +7,7 @@ angular.module("2048").controller('gameController', ['VirtualShift', 'CreateArra
     var game = this;
     var winTileValue = 2048;
     game.gameOver = false;  //if true, should prevent some input like shifting
+    game.displayGameLose = false;
     game.gridWidth = 4;     //grid dimensions (always a square x*x)
     game.cellValues = [];   //this array contains the tile values (0 is considered an empty tile)
     game.score = 0;
@@ -72,7 +73,6 @@ angular.module("2048").controller('gameController', ['VirtualShift', 'CreateArra
         shift(dir);
     };
 
-
     //=========================================================================
     // INTERNAL FUNCTIONS
     //=========================================================================
@@ -92,6 +92,7 @@ angular.module("2048").controller('gameController', ['VirtualShift', 'CreateArra
         game.score = 0;
 
         game.gameOver = false;
+        clearOverlay();
 
     }
 
@@ -128,7 +129,7 @@ angular.module("2048").controller('gameController', ['VirtualShift', 'CreateArra
                 if (game.cellValues.indexOf(winTileValue) != -1)
                 {
                     game.gameOver = true;
-                    setTimeout(function () { alert("CONGRATULATIONS! YOU HAVE CREATED THE " + winTileValue + " TILE AND WON THE GAME! ") }, 960);
+                    setTimeout(function () { displayWinMessage(); }, 3000);
                 }
 
                 //Check if game can continue or has ended in a loss
@@ -136,6 +137,7 @@ angular.module("2048").controller('gameController', ['VirtualShift', 'CreateArra
 
                 if (isGameOver) {
                     game.gameOver = true;
+                    setTimeout(function () { displayLoseMessage(); }, 1500);
                 }
             }
             else {
@@ -148,6 +150,21 @@ angular.module("2048").controller('gameController', ['VirtualShift', 'CreateArra
         }
 
     }
+
+
+    var displayLoseMessage = function () {
+        $("#overlay-loss").fadeIn(2000);
+    };
+
+    var displayWinMessage = function () {
+        $("#overlay-win").fadeIn(2000);
+    };
+
+    var clearOverlay = function () {
+        $("#overlay-loss").hide();
+        $("#overlay-win").hide();
+    };
+
 
     
     //=========================================================================
@@ -416,7 +433,6 @@ angular.module("2048").service("GameOverCheck", ["EmptyTileCheck", 'VirtualShift
                 }
             }
 
-            setTimeout(function() { alert("GAME OVER")}, 960 );
             return true;
         }
         return false;

@@ -18,29 +18,59 @@
 </head>
 
 <body ng-app="2048" ng-controller="gameController as game">
-    <div ng-keydown="game.input($event)" id="init" tabindex="0">
+    
 
+    <div ng-keydown="game.input($event)" id="init" tabindex="0" class="game-window">
+        
         <div class="container">
-            <!--<div class="col-md-3"></div>-->
-
-            <!--<div class="col-md-6">-->
-                <div class="nav">
+            <div class="nav">
                     
-                    <div class="scoreBox">
-                        best
-                        <span class="scoreBoxScore">{{game.scoreBest}}</span>
+                <div class="scoreBox">
+                    best
+                    <span class="scoreBoxScore">{{game.scoreBest}}</span>
+                </div>
+                    
+                <div class="scoreBox">
+                    score
+                    <span class="scoreBoxScore">{{game.score}}</span>
+                </div>
+                    
+
+                <h1>2048</h1>
+                <div>
+                    <p class="descrText">Merge identical numbers and get to<br /> the <strong>2048 tile!</strong></p>
+                </div>
+                
+                <div class="toRight">
+                    <span class="btn_2048_default" ng-click="game.restart()">New Game (R)</span>
+                </div>
+                
+
+            </div>
+
+            <div class="table-container">
+
+                <!-- GAME LOSS - Floating end game popup overlay-->
+                <div id="overlay-loss" class="overlay-gameEnd" hidden="hidden">
+                    <div class="gameLossMessage">
+                        Game over!
                     </div>
-                    
-                    <div class="scoreBox">
-                        score
-                        <span class="scoreBoxScore">{{game.score}}</span>
+                    <div>
+                        <span class="btn_2048_default" ng-click="game.restart()">Try Again</span>
                     </div>
-                    
+                </div>
 
-                    <h1>2048</h1>
-                    <p>Join the numbers and get to the 2048 tile!</p>
+                <!-- GAME WIN - Floating end game popup overlay-->
+                <div id="overlay-win" class="overlay-gameEnd" hidden="hidden">
+                    <div class="gameWinMessage">
+                        Congratulations!
+                    </div>
 
+                    <p class="text-success">You have successfully created the <strong>2048 tile</strong> and won the game!<br /><br /></p>
 
+                    <div>
+                        <span class="btn_2048_default" ng-click="game.restart()">Play Again</span>
+                    </div>
                 </div>
 
                 <table class="gameBoard">
@@ -48,21 +78,34 @@
                         <td class='tile value{{game.cellValues[x*game.gridWidth + y]}} text-center' ng-repeat="y in game.rows"><span ng-if="game.cellValues[x*game.gridWidth + y] != 0">{{game.cellValues[x*game.gridWidth + y]}}</span></td>
                     </tr>
                 </table>
+            </div>
+            
 
-                <button type="button" class="btn-default" ng-click="game.doLine([0, 2, 2, 4])">doLine</button>
+            <div>
+                <p class="info buffer16"><strong>HOW TO PLAY:</strong> Use the <strong>arrow keys</strong> or <strong>W, A, S, D</strong> to move tiles. When two tiles of the same value touch, they <strong>merge into one!</strong></p>
+                
+                <hr />
+                
+                <p class="info"><strong>NOTE:</strong> This is a personal project based entirely on <strong>Gabriele Cirulli's <a href="https://gabrielecirulli.github.io/2048/">2048 game</a></strong>. The visual aspects are imitated closely, however the JavaScript is entirely my own.</p>
 
-                <button type="button" class="btn-default" ng-click="game.restart()">Restart</button>
+                <hr />
 
-                <br /><br />
+                <p class="info">Created by <a href="mailto:c.w.pyle@gmail.com"><strong>Colin Pyle</strong></a>.</p>
+
+                <!--<hr />
+
+                <p class="info">
+                    <strong>Known Issues:</strong>
+                    <ul>
+                        <li>None</li>
+                    </ul>
+                
+                </p>-->
 
             </div>
 
-            <!--<div class="col-md-3">
-            </div>-->
-
-        <!--  --></div>
-
+        </div>
     </div>
-    
+
 </body>
 </html>
